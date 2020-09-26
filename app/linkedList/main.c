@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "linkedList.h"
+#include <linkedList.h>
 
 int main(void) {
 	Node* linkedList = malloc(sizeof(Node*));
@@ -12,7 +12,6 @@ int main(void) {
 	addFirst(linkedList, 30);
 	addFirst(linkedList, 40);
 	addFirst(linkedList, 50);
-
 	printList(linkedList);
 
     addLast(linkedList, 20);

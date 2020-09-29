@@ -1,11 +1,15 @@
 # Practice
 
-# Author		:	Taeho Kim
-# About			:	C language practice
-# Contents		:	Data Structure practice
-		- linkedlist (2020.09.26)
+## Author
+	>>	Taeho Kim
+## Language
+	>>	C Language
+## Contents
+	>>	Data Structure practice
+		- Singly linked list (2020.09.26)
+		- Doubly linked list
 		- cmake
-# Environment	: Ubuntu 20.04 Linux
+## Environment	: Ubuntu 20.04 Linux
 				: vim
 .vimrc
 ---------------------------

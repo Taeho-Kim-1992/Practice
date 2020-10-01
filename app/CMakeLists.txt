@@ -1,1 +1,1 @@
-add_subdirectory(linkedList)
+add_subdirectory(singly_linked_list)

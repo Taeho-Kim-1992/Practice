@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(dalpu
+project(practice
 	VERSION 0.0.0
 	DESCRIPTION "Data structure practice"
 	LANGUAGES C)
@@ -15,7 +15,7 @@ endif()
 include_directories(include)
 
 set(SOURCES
-	src/linkedList.c)
+	src/s_linkedList.c)
 
 add_library(data_structure STATIC ${SOURCES})
 

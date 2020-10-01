@@ -1,8 +1,32 @@
 #include <stdio.h>
+#include <inttypes.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "linkedList.h"
+#include "s_linkedList.h"
+
+uint16_t getSize(Node* list) {
+	uint16_t size = 0;
+	Node* tmp = list->next;
+	while(tmp != NULL) {
+		tmp = tmp->next;
+		size++;
+	}
+	return size;
+}
+
+
+uint8_t getDataAt(Node* list, uint16_t index) {
+    if((index > getSize(list)) || (index < 0)) {
+        printf("Wrong index\n");
+        return 0;
+    }
+    Node* tmp = list->next;
+    for(uint8_t i = 0; i < index; i++) {
+        tmp = tmp->next;
+    }
+    return tmp->data;
+}
 
 bool search(Node* list, uint8_t target) {
     Node* tmp = list->next;
@@ -14,6 +38,7 @@ bool search(Node* list, uint8_t target) {
         tmp = tmp->next;
     }
     printf("%d does not exist in this list.\n", target);
+	free(tmp);
     return false;
 }
 
@@ -34,6 +59,7 @@ void printList(Node* list) {
         tmp = tmp->next;
     }
     printf("]\n");
+	free(tmp);
 }
 
 void addFirst(Node* list, uint8_t data) {

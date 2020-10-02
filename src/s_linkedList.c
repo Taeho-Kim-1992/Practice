@@ -6,15 +6,14 @@
 #include "s_linkedList.h"
 
 uint16_t getSize(Node* list) {
-	uint16_t size = 0;
-	Node* tmp = list->next;
-	while(tmp != NULL) {
-		tmp = tmp->next;
-		size++;
-	}
-	return size;
+    uint16_t size = 0;
+    Node* tmp = list->next;
+    while(tmp != NULL) {
+        tmp = tmp->next;
+        size++;
+    }
+    return size;
 }
-
 
 uint8_t getDataAt(Node* list, uint16_t index) {
     if((index > getSize(list)) || (index < 0)) {
@@ -38,7 +37,7 @@ bool search(Node* list, uint8_t target) {
         tmp = tmp->next;
     }
     printf("%d does not exist in this list.\n", target);
-	free(tmp);
+    free(tmp);
     return false;
 }
 
@@ -59,7 +58,7 @@ void printList(Node* list) {
         tmp = tmp->next;
     }
     printf("]\n");
-	free(tmp);
+    free(tmp);
 }
 
 void addFirst(Node* list, uint8_t data) {
@@ -76,6 +75,24 @@ void addLast(Node* list, uint8_t data) {
     newNode->data = data;
     newNode->next = NULL;
     list->next = newNode;
+}
+
+void addAt(Node* list, uint8_t index, uint8_t data) {
+    if((index < 0) || (index > getSize(list))) {
+        return;
+    } else if (index == 0) {
+        addFirst(list, data);
+    } else if (index == getSize(list)) {
+        addLast(list, data);
+    } else {
+        Node* newNode = (Node*)malloc(sizeof(Node*));
+        for(uint8_t i = 0; i < index; i++) {
+            list = list->next;
+        }
+        newNode->data = data;
+        newNode->next = list->next;
+        list->next = newNode;
+    }
 }
 
 void delFirst(Node* list) {
@@ -96,6 +113,21 @@ void delLast(Node* list) {
     Node* target = list->next;
     list->next = target->next;
     free(target);
+}
+
+void delAt(Node* list, uint16_t index) {
+	if((index < 0) || (index > getSize(list))) {
+		return;
+	} else if (index == 0) {
+		delFirst(list);
+	} else if (index == getSize(list)) {
+		delLast(list);
+	} else {
+		for(uint8_t i = 0; i < index; i++) {
+			list = list->next;
+		}
+        list -> next = list->next->next;
+	}
 }
 
 void clear(Node* list) {

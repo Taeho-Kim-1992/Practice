@@ -42,12 +42,7 @@ bool search(Node* list, uint8_t target) {
 }
 
 bool isEmpty(Node* list) {
-    if(list->next == NULL) {
-        printf("This is empty list\n");
-        return true;
-    } else {
-        return false;
-    }
+    return list->next == NULL;
 }
 
 void printList(Node* list) {

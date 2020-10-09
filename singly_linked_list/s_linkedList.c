@@ -46,31 +46,40 @@ bool isEmpty(Node* list) {
 }
 
 void printList(Node* list) {
+	uint16_t index = 0;
+	list = list->next;
     printf("List=\t{\n");
-    while(list->next != NULL) {
-        printf("\t\tData: %4d at(%p) \n", list->data, list);
+    while(list != NULL) {
+        printf("\t\tindex (%2d) data: %3d [curr(%p) next(%p)] \n", index, list->data, list, list->next);
         list = list->next;
+		index++;
     }
     printf("\t}\n");
 }
 
 void addFirst(Node* list, uint8_t data) {
-    Node* newNode = (Node*)malloc(sizeof(Node*));
-    newNode->next = list->next;
-    newNode->data = data;
-    list->next = newNode;
+    Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
+	newNode->next = NULL;
+	if(isEmpty(list)) {
+		list->next = newNode;
+	} else {
+		newNode->next = list->next;
+		list->next = newNode;
+	}
 }
 
 void addLast(Node* list, uint8_t data) {
-    Node* newNode = (Node*)malloc(sizeof(Node*));
-    while(list->next != NULL)
-        list = list->next;
+    Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = data;
     newNode->next = NULL;
+
+    while(list->next != NULL)
+        list = list->next;
     list->next = newNode;
 }
 
-void addAt(Node* list, uint8_t index, uint8_t data) {
+void addAt(Node* list, uint16_t index, uint8_t data) {
     if((index < 0) || (index > getSize(list))) {
         return;
     } else if (index == 0) {
@@ -78,7 +87,7 @@ void addAt(Node* list, uint8_t index, uint8_t data) {
     } else if (index == getSize(list)) {
         addLast(list, data);
     } else {
-        Node* newNode = (Node*)malloc(sizeof(Node*));
+        Node* newNode = (Node*)malloc(sizeof(Node));
         for(uint8_t i = 0; i < index; i++) {
             list = list->next;
         }

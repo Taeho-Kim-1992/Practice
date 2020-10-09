@@ -5,86 +5,53 @@
 
 int main(void) {
     printf("Create a new singly linked list\n");
-	Node* linkedList = malloc(sizeof(Node*));
+	Node* list = malloc(sizeof(Node));
+	printf("list head at %p", list);
 
-	printf("addFirst 10\n");
-	addFirst(linkedList, 10);
+	/*add first*/
+	printf(">>Add first\n");
+	for(uint8_t i = 0; i < 20; i++) {
+		addFirst(list, i);
+	}
+	printList(list);
 
-	printf("addFirst 20\n");
-	addFirst(linkedList, 20);
+	/*add last*/
+	printf(">>Add last\n");
+	for(uint8_t i = 0; i < 20; i++) {
+		addLast(list, i);
+	}
+	printList(list);
 
-	printf("addFirst 30\n");
-	addFirst(linkedList, 30);
+	/*addAt(index)*/
+	for(uint8_t i = 0; i < 20; i++) {
+	printf(">>Add at (index = 10)\n");
+		addAt(list, 10, 100);
+	}
+	printList(list);
 
-	printf("addFirst 40\n");
-	addFirst(linkedList, 40);
+	/*del first*/
+	printf(">>Del first\n");
+	for(uint8_t i = 0; i < 10; i++) {
+		delFirst(list);
+	}
+	printList(list);
 
-	printf("addFirst 50\n");
-	addFirst(linkedList, 50);
+	/*del last*/
+	printf(">>Del last\n");
+	for(uint8_t i = 0; i < 10; i++) {
+		delLast(list);
+	}
+	printList(list);
 
-	printf("addAt 2, 100\n");
-    addAt(linkedList, 2, 100);
-	printList(linkedList);
+	/*delAt(index)*/
+	for(uint8_t i = 0; i < 20; i++) {
+	printf(">>Del at (index = 10)\n");
+		delAt(list, 10);
+	}
+	printList(list);
 
-	printf("Data at 2 is %d\n",getDataAt(linkedList, 2));
-	printf("Data at 1 is %d\n",getDataAt(linkedList, 1));
-	printf("Data at -1 is %d\n",getDataAt(linkedList, -1));
-	printf("List size is %d\n", getSize(linkedList));
-
-	printf("search 20 : ");
-	search(linkedList, 20);
-
-	printf("addLast 20\n");
-	addLast(linkedList, 20);
-
-	printf("addLast 30\n");
-	addLast(linkedList, 30);
-
-	printf("addLast 40\n");
-	addLast(linkedList, 40);
-
-	printf("addLast 20\n");
-	addLast(linkedList, 20);
-
-	printList(linkedList);
-
-	printf("delAt(2)\n");
-    delAt(linkedList,2);
-
-	printList(linkedList);
-
-	printf("delFirst\n");
-	delFirst(linkedList);
-
-	printf("delFirst\n");
-	delFirst(linkedList);
-
-	printf("delFirst\n");
-	delFirst(linkedList);
-
-	printf("delFirst\n");
-	delFirst(linkedList);
-
-	printList(linkedList);
-
-	printf("delLast\n");
-	delLast(linkedList);
-
-	printf("delLast\n");
-	delLast(linkedList);
-
-	printf("delLast\n");
-	delLast(linkedList);
-
-	printList(linkedList);
-
-	printf("clear\n");
-	clear(linkedList);
-	printList(linkedList);
-
-	printf("Trying delete data in the emptylist\n");
-	delLast(linkedList);
-	printList(linkedList);
-    free(linkedList);
+	clear(list);
+	printList(list);
+    free(list);
 	return 0;
 }

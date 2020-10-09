@@ -4,6 +4,7 @@
 #include "s_linkedList.h"
 
 int main(void) {
+    printf("Create a new singly linked list\n");
 	Node* linkedList = malloc(sizeof(Node*));
 
 	printf("addFirst 10\n");

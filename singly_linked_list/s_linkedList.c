@@ -46,14 +46,12 @@ bool isEmpty(Node* list) {
 }
 
 void printList(Node* list) {
-    Node *tmp = list->next;
-    printf("List : [");
-    while(tmp != NULL) {
-        printf("%d ", tmp->data);
-        tmp = tmp->next;
+    printf("List=\t{\n");
+    while(list->next != NULL) {
+        printf("\t\tData: %4d at(%p) \n", list->data, list);
+        list = list->next;
     }
-    printf("]\n");
-    free(tmp);
+    printf("\t}\n");
 }
 
 void addFirst(Node* list, uint8_t data) {

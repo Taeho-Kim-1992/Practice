@@ -9,6 +9,7 @@
 		- Singly linked list	(2020.09.26)
 		- Doubly linked list	(2020.10.10)
 		- Stack					(2020.10.13)
+		- Queue					(2020.10.17)
 		- Newtwork Programming	(2020.10)
 			1) I/O multiplexing
 			2) TCP

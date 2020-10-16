@@ -1,6 +1,6 @@
 #ifndef _D_LINKEDLIST_H__
 #define _D_LINKEDLIST_H__
-#include <inttypes.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 typedef struct node {
